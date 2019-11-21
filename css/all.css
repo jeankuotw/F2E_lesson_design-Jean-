@@ -1,0 +1,403 @@
+﻿*{
+	/*CSS3語法:讓div的寬度不被padding,border影響*/
+	box-sizing: border-box;
+	-moz-box-sizing:border-box;
+	/*舊firefox用*/
+	-webkit-box-sizing:border-box;
+	/*舊Grome*/
+}
+
+body{
+	font-family:Arial, Helvetica,"微軟正黑體" ,sans-serif;
+	background-color: #fff;
+}
+/*====================== wrapper最外層 ======================*/
+.wrapper{
+	width: 1024px;
+	margin: 0 auto;
+}
+
+/*======================.toptab======================*/
+.toptab{
+	background-color: #f6f6f6;
+	/*X高度不要寫死,比較有彈性*/
+	/*height: 30px;*/
+	/*一開始以為一定要寫高度才會顯示此區塊，後來才知道原來是因為此層最後沒有解除float狀況,所以才不會顯示出來*/
+}
+.toptab ul{
+	float: right;/*ul置右*/
+
+}
+.toptab li{
+	float: left;/*水平排列*/
+	/*調整li整體高度和與右方li之間的距離*/
+	margin-top: 7px;
+	margin-right: 5px;
+}
+.toptab li a{
+	text-decoration: none;
+	color:#4460a0;
+	font-size:13px;
+	/*調整a標籤內的距離,也就是與右方分隔線(框線)之間的距離*/
+	padding-right: 5px;
+}
+.toptab li a:hover{
+	color:red;
+}
+.toptab li:first-child a{
+	border-right: 1px solid #d3d4d6;
+}
+
+.toptab li a span{
+	color:#00aaec;
+}
+.toptab li a:hover span{
+	color:red;
+}
+.toptab li img{
+	float:left;	/*圖片浮動*/
+	margin-right: 5px;	/*調整圖與文字的距離*/
+}
+
+
+/*====================== header logo+導覽列 ======================*/
+.header{
+	line-height: 36px;
+	/*文字垂直置中,與logo同高*/
+	height: 46px;
+	/*要寫高度,要不然會被下面banner吃掉*/
+}
+
+.header h1{
+	float: left;/*logo區浮在左側*/
+	padding-top: 5px;
+}
+
+.header h1 a{
+	/*放入logo,變成區塊模式*/
+	background-image: url(../img/logo.png);
+	display: block;	
+	width: 170px;
+	height: 36px;
+	/*藏起文字*/
+	text-indent: 101%;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.header ul{
+	float: right;	/*ul浮在右側*/
+}
+
+.header .menu > li{
+	float:left;	/*水平對齊*/
+
+	/*(重要)讓下層ul對齊用(122-125行)*/
+	position:relative;	
+}
+
+.header .menu > li > a{
+	color:#00cc99;
+	text-decoration: none;
+	/*變為按鈕(區塊模式),設定尺寸*/
+	display: block;
+	padding: 5px 18px 5px 18px;
+}
+
+.header .menu > li > a:hover,
+.header .menu > li > a.menuchoose{
+	color:#02775a;
+	font-weight: bolder;
+	background-color: #e2f9f3;
+	border-bottom: 5px solid #02775a;
+	padding: 5px 18px 0px 18px;	
+	/*因為有加上border-bottom:5px,所以調整下方距離*/
+}
+
+/*menu的第二層選項*/
+.header .menu .menuselect{
+	padding:15px 20px;
+	background-color: #e2f9f3;
+	display:none; /*第二層ul一開始先隱藏起來*/
+
+	/*(重要)位置:對齊上層li(95.96行)*/
+	position: absolute;
+	left: 0;
+	top: 46px;	/*位置要從上層的最下方開始出現,也就是高46px的地方*/
+	z-index: 99; 	/*顯示位置要比下方的banner高,所以設定z-index*/
+	
+	border-radius:1px;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+
+}
+
+.header .menu >li li {}
+
+.header .menu >li li a{
+	/*變為按鈕才能設定寬高*/
+	display:block;
+	width: 200px;
+	line-height: 35px;
+
+	text-decoration: none;
+	color:#02775a;
+	font-size:16px;
+}
+
+.header .menu >li li a:hover {
+	display:block;
+	font-weight: bolder;
+	color:red;
+}
+
+/*在各層有float狀態的最後方,解除浮動狀態*/
+.clearfix{
+	clear:both;
+}
+
+/*====================== banner主形象圖 ======================*/
+.banner,.swiper-container{ /*.swiper-container是swiper輪播用*/
+	/*background-image: url(../img/banner.png);*/
+	/*通常圖片不需要設定 width，因為 div 是區塊元素會自適應父元素寬度,但本處因為要使用swiper所以需要設定寬高*/
+ 	width: 1024px;
+	height: 418px;
+	position: relative;	/*讓下層對齊*/
+}
+
+.banner .textback,.textback2,.textback3{
+	position:absolute;/*對齊上層*/
+	width: 1024px;
+	height: 130px;
+	/*X不建議用 margin 來推,可用top來設定*/
+	/*margin-top: 160px;*/	/*調整文字底圖與banner的距離*/
+	top:145px;
+	background-color: rgba(0,0,0,0.5); /*半透明黑底*/
+	z-index: 2;	/*位置移動到banner&swiper物件前*/
+}
+
+.banner .textback h2,.textback2 h2,.textback3 h2{
+	color:white;
+	font-weight: bolder;
+	font-size: 28px;
+	padding: 30px 70px;
+	line-height: 35px;
+}
+
+/*====================== listmenu重點清單 ======================*/
+.listmenu{
+	margin-top: 30px;
+	margin-left: 10px;
+}
+.listmenu .rwd-list,.listmenu .rwd-listb{
+	float:left;
+	/*表格水平排列*/
+	display: block;
+	width: 328px;
+	height: 320px;
+	/*內部*/
+	padding: 20px;
+	/*外框*/
+	border:1px solid #d3d4d6;
+	border-radius:1px;
+	box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+	margin-right: 10px;
+}
+
+/*設定listmenu中的圖片格式一致*/
+.listmenu .listmenulogo{
+	display:block;
+	width:288px;
+	height:150px;
+	text-align: center;
+}
+/*觸碰圖片時稍微位移(+調整按鈕大小,才不會讓下方內容也一起連動)*/
+.listmenu .listmenulogo:hover{
+	width:286px;
+	height:148px;
+	margin-left: 2px;
+	margin-top: 2px;	
+}
+
+/*listmenu標題設定*/
+.listmenu .rwd-list h2,.listmenu .rwd-listb h2{
+	text-align: center;
+	margin-bottom:12px;
+}
+.listmenu .rwd-list h2 a,.listmenu .rwd-listb h2 a{
+	text-decoration: none;
+	font-size:22px;
+	font-weight:bolder;
+	color:black;
+}
+.listmenu .rwd-list h2 a:hover,
+.listmenu .rwd-listb h2 a:hover{
+	font-size:23px;
+	color:#a53f3f;
+}
+
+.listmenu .rwd-list p,.listmenu .rwd-list p{
+	text-align: justify;/*調整每行右方對齊*/
+	text-indent:15px;/*字首縮排*/
+	padding-left: 15px;
+	padding-right:15px;
+}
+
+/*調整單張圖與上方的距離*/
+.listmenu .rwd-listb .listmenulogo{
+	padding-top:30px;
+}
+
+.listmenu .rwd-list .jquerylist{
+	list-style-type: disc;
+}
+
+
+/*====================== tablelist比較表 ======================*/
+.tablelist{	
+	margin-top: 30px;
+	margin-bottom: 40px;
+}
+.tablelist h3{
+	font-size:25px;
+	font-weight:bolder;
+	text-align:center;
+	margin-bottom: 20px;	/*與下方表格之間的距離*/
+}
+/*表格調整到畫面中央,需設定在table中(此處命名為.list)*/
+.tablelist .list{
+	margin: 0 auto;
+}
+.tablelist .list tr th{
+	background-color: #f6f6f6;
+	font-weight:bolder;
+	text-align: left;
+}
+.tablelist .list tr th,td{
+	/*格線*/
+	border-top:1px solid black;
+	border-bottom:1px solid black;
+	padding: 10px 35px;/*調整格子大小*/
+	font-size:15px;
+}
+
+/*單獨調整表格左右與文字之間的距離*/
+.tablelist .list tr th:first-child,td:first-child{
+	padding-left:50px;	
+}
+.tablelist .list tr th:last-child,td:last-child{
+	padding-left:50px;	
+}
+
+/*====================== message留言區 ======================*/
+/*背景*/
+.message{
+	/*設定漸層色背景*/
+	background-image:linear-gradient(#00654b,#009771);
+	background-color:#00654b;/*如沒有支援CSS3時會顯示此顏色*/
+	/*不要寫死高度，目的在於說日後裡面內容變多時，也可自適應延伸*/
+	/*height:350px;/*X有高才能設定漸層 → 錯誤,只要此層最後float有解除,就可以正常顯示高度*/
+}
+.message h4{
+	/*文字設定*/
+	font-size:25px;
+	font-weight:bolder;
+	color:#fff;
+	letter-spacing:1px;	/*字與字之間的距離*/
+	line-height:35px;	/*行高(調整兩行文字之間的距離)*/
+	text-align: center;	/*文字至中*/
+	padding-top:20px;	/*與上方的框格距離*/
+}
+.message form{
+	margin-top: 20px;	/*整體form與上方的距離*/
+	/*左右與框格的距離*/
+	margin-left: 30px;
+	margin-right: 30px;
+}
+.message form textarea{
+	float:left;/*留言板區浮在左*/
+	/*設定留言板寬高、提醒文字大小、文字與框格的距離*/
+	width: 450px;
+	height: 200px;
+	font-size:15px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+.message form .inputarea{
+	float:left;	/*input區也浮在左方*/
+	margin-left: 50px;	/*調整此區與左方的距離*/
+	padding-bottom:30px;
+}
+/*label標籤設定*/
+.message form label{
+	color:#fff;
+	font-size:12px;
+	font-weight:bolder;
+	line-height:20px;	/*行高(調整與下方框格的距離)*/
+}
+
+/*<input>原為display:none;設定,只要改成display:block,就能夠一段一段向下排列*/
+.message form input{	
+	display:block;
+}
+
+/*填文字框格區<input type="text">*/
+.message form #name,#phone,#mail{
+	/*設定寬、框線&圓角、提醒文字與框格間的距離*/
+	width: 450px;
+	border:0;
+	border-radius:2px;
+	padding: 5px;
+	margin-bottom: 12px;/*與下方文字的距離*/
+}
+/*送出訊息按鈕<input type="submit">*/
+.message form #submit{
+	/*#submit 不建議使用過高的 margin 來定位，靠右可使用 float*/
+	/*margin-left: 395px;	/*調整左右位置*/
+	float:right; /*如設定浮在右方,:hover文字大小改變時會不自然 → 只好大小不改變*/
+	/*按鈕設定:文字、框線、與框之間的距離*/
+	font-size:12px;
+	color:#fff;
+	background-color: #00cc99;
+	border:0px;
+	border-radius: 2px;		
+	padding: 8px 15px;	
+}
+
+.message form #submit:hover{
+	color:#000;
+	font-weight:bolder;	
+	background-color:#b1f1e1;
+	cursor: pointer;/*滑鼠移過去時會變成手形*/
+	/*以下不調整了*/
+	/*font-size:13px;*/
+	/*padding: 8px 14px	*/
+}
+
+/*====================== footer表尾 ======================*/
+.footer{		
+	padding: 5px 15px 0px 10px;	
+	/*不要寫死高度，目的在於說日後裡面內容變多時，也可自適應延伸*/
+	/*height: 50px;	*/
+}
+/*logo區*/
+.footer a{
+	float: left;/*logo靠左*/
+}
+/*文字區*/
+.footer h3{
+	float: right;/*文字靠右*/
+	font-size:14px;
+	line-height: 16px;
+	margin-top: 5px;	
+}
+/*調整部分文字顏色*/
+.footer h3 span{
+		color:#7e0577;	
+}
+
+/*======================topimage回到最上層圖 ======================*/
+.topimage{
+	position:fixed;
+	right: 20px;
+	bottom: 10px;
+}

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<!-- 網頁顯示標題 -->
+	<title>前端工程師|六角學院</title>
+	
+	<!-- 網頁顯示標題前的小圖示,圖片副檔名為XXX.con,圖片大小32x32 -->
+	<link rel="shortcut icon" href="img/logoicon.ico">
+	<!-- 網站描述文字 -->
+	<meta name='description' content='由六角為您開啟前端工程師這條道路'>
+	<!-- 關鍵字,越前面權重越重(用,區隔關鍵字) -->
+	<meta name='keywords' content='前端,CSS,HTML,響應式網站設計,jQuery'>
+
+<!-- ======================FB用====================== -->
+	<!-- 當FB貼此網頁網址時,FB會呈現的內容。property都會是og:XXX -->
+	<!-- 標題 -->
+	<meta property="og:title" content="前端基礎學習">
+	<!-- 描述 -->
+	<meta property="og.description" content="由六角為您開啟前端工程師這條道路">
+	<!-- FB上的圖片 -->
+	<meta property="og:image" content="img/img_html5.png">
+	<!-- 類型:網站 -->
+	<meta property="og:type" content="website">
+	<!-- FB上的網址 -->
+	<meta property="og:url" content="FB上的網址">
+
+	<!-- 重要,IE相容 -->
+	<!-- 給IE相容性看,網頁會自動更新到最新的IE版本 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+
+
+<!-- ======================CSS檔連結====================== -->
+    <!-- reset.css(清除預設) -->
+    <link rel="stylesheet" href="css/reset.css">
+
+    <!-- Swiper輪播效果css檔 -->
+    <!-- Swiper輪播效果(第三方插件)。官網：https://swiperjs.com/ -->	
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <!-- [企業用]swiper.css壓縮檔(檔案較小) -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css"> -->
+    
+    <!-- Lightbox燈箱效果css檔 -->
+    <!-- Lightbox燈箱效果(第三方插件)。官網：https://www.lokeshdhakar.com/projects/lightbox2/ -->
+    <link href="css/lightbox.css" rel="stylesheet" />
+    <!-- [企業用]lightbox.css壓縮版(檔案較小) -->
+    <!-- <link rel="stylesheet" href="css/lightbox.min.css"> -->
+
+    <!-- 自己的css檔 -->
+    <link rel="stylesheet" href="css/all.css">
+</head>
+
+
+<body>
+<!--  ====================== wrapper最外層 ====================== -->
+	<div class="wrapper">
+
+<!--  ====================== toptab ====================== -->
+		<div class="toptab">
+			<ul>
+				<li><a href="#"><img src="img/icon-facebook.png" ">粉絲團</a></li>
+				<li><a href="#"><img src="img/icon-twitter2.png" "><span>追隨我們</span></a></li>
+			</ul>
+			<!-- 請在此也加上清除此層浮動的設定 -->
+			<div class="clearfix"></div>
+		</div>
+
+<!--  ====================== header logo+導覽列 ====================== -->
+		<div class="header">
+			<h1><a href="#">Hex School</a></h1>
+			<ul class="menu">
+				<li><a href="#">首頁</a></li>
+				
+				<li><a href="#">產品介紹</a>
+					<ul class="menuselect">
+						<li><a href="#">HTML5課程</a></li>
+						<li><a href="#">RWD響應式網頁課程</a></li>
+						<li><a href="#">jQuery課程</a></li>
+					</ul>
+				</li>
+
+				<li><a href="#">聯絡我們</a>
+					<ul class="menuselect">
+						<li><a href="#">分店資訊</a></li>
+						<li><a href="#">e-mail聯繫</a></li>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+
+<!--  ====================== banner主形象圖 ====================== -->
+<!-- 使用swiper輪播效果 -->
+<!-- 使用swiper輪播效果。class="banner"是給css用、class="swiper-container"是給swiper用 -->
+<!-- 如果想在輪播圖前方放上色塊div及文字,那就要把色塊div及文字都放在各輪播圖片的區塊中,才會一起輪播 -->
+
+	<!-- Slider main container -->
+    <div class="banner swiper-container">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper">
+            <!-- Slides -->
+            <div class="swiper-slide">
+            	<!-- 圖片 -->
+                <img src="img/banner.png">
+                <!-- 色塊div及文字 -->
+                <div class="textback"><h2>六角學院<br>讓您奠定良好的前端基礎</h2></div>
+            </div>
+
+            <div class="swiper-slide">
+            	<!-- 圖片 -->
+                <img src="img/banner2.png">
+                <!-- 色塊div及文字 -->
+                <div class="textback2"><h2>成功轉職<br>穩扎穩打朝目標前進</h2></div>
+            </div>
+            <div class="swiper-slide">
+            	<!-- 圖片 -->
+                <img src="img/banner3.png">
+                <!-- 色塊div及文字 -->
+                <div class="textback3"><h2>前端工程師<br>年薪百萬絕對不是夢</h2></div>
+            </div>
+
+        </div>
+        <!-- If we need pagination -->
+        <div class="swiper-pagination"></div>
+
+        <!-- If we need navigation buttons -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- If we need scrollbar(滾動條) -->
+        <!-- <div class="swiper-scrollbar"></div> -->       
+        
+    </div>
+
+
+	
+
+<!--  ====================== listmenu重點清單 ====================== -->
+<!-- Lightbox燈箱效果區 -->
+<!-- class="example-image-link"是燈箱效果用 -->
+<!-- 照片各為獨立時,data-lightbox="群組名"的群組名稱要取"不同的名字"，需一張關掉後才能開另一張照片 -->
+<!-- 範例語法：
+	<a class="example-image-link" href="images/20190902p01.jpg" data-lightbox="example-1"><img class="example-image" src="images/small20190902p01.jpg" alt="image-1" /></a> -->
+
+	<div>
+		<ul class="listmenu">
+			<li class="rwd-list"><a class="listmenulogo example-image-link" href="img/bigimg_html5.png" data-lightbox="example-1"><img class="example-image" src="img/img_html5.png" alt="HTML5基礎教學"></a>
+				<h2><a href="#">HTML5基礎教學</a></h2>
+				<p>主流前端網站設計的基礎就在六角學院，在這裡不在是填鴨式教學，而是透過實際的範例，瞭解正確的網站開發流程，講師均具有業界開發經驗，讓學員學習業界主流的開發方法。</p>
+			</li>
+			<li class="rwd-listb"><a class="listmenulogo example-image-link" href="img/bigimg_responsive.png" data-lightbox="example-1"><img class="example-image" src="img/img_responsive.png" alt="響應式網站設計"></a>
+				<h2><a href="#">響應式網站設計</a></h2>
+				<p>響應式網站設計 (Responsive web design)，目前大多使用者均是以手機瀏覽的情況下，響應式網站已經是必備的。六角學院將會提供業界響應式開發方法，讓學生瞭解行動版開發技巧。</p>
+			</li>
+
+			<!-- 此區列表請用ul li呈現 -->
+			<li class="rwd-list"><a class="listmenulogo example-image-link" href="img/bigimg_jquery.png" data-lightbox="example-1"><img class="example-image" src="img/img_jquery.png" alt="jQuery實戰教學"></a>
+				<h2><a href="#">jQuery實戰教學</a></h2>
+				<p>本課程有以下特色</p>
+				<ul class="jquerylist">
+					<li>瞭解變數的使用方法</li>
+					<li>學習並操作DOM</li>
+					<li>學習基本數學運算方法</li>
+					<li>套件的操作及運用</li>
+				</ul>
+			</li>
+		</ul>
+		<div class="clearfix"></div>
+	</div>
+
+<!--  ====================== tablelist比較表 ====================== -->
+	<div class="tablelist">
+		<h3>線上及實體課程的差異</h3>
+		<table class="list">
+			<tr>
+				<th>項目</th>
+				<th>Hex School線上課程</th>
+				<th>一般線上課程</th>
+				<th>實體課程</th>
+			</tr>
+			<tr>
+				<td>費用</td>
+				<td>較低</td>
+				<td>較低</td>
+				<td>較高</td>
+			</tr>
+			<tr>
+				<td>學習效果</td>
+				<td>一般</td>
+				<td>較低</td>
+				<td>很好</td>
+			</tr>
+			<tr>
+				<td>Code review</td>
+				<td>有</td>
+				<td>無</td>
+				<td>不一定</td>
+			</tr>
+			<tr>
+				<td>課程更新速度</td>
+				<td>普通</td>
+				<td>普通</td>
+				<td>較慢</td>
+			</tr>
+			<tr>
+				<td>多次複習</td>
+				<td>可</td>
+				<td>可</td>
+				<td>不可</td>
+			</tr>
+			<tr>
+				<td>字幕</td>
+				<td>有</td>
+				<td>不一定</td>
+				<td>板書</td>
+			</tr>
+		</table>
+	</div>
+
+<!--  ====================== message留言區 ====================== -->
+	<div class="message">
+		<h4>對我們課程有興趣嗎?<br>
+			歡迎留下您的資料</h4>
+
+		<form>
+			<textarea id="messagearea" name="messagearea" cols="30" rows="10" placeholder="如有任何問題想諮詢,歡迎在此留言"></textarea>
+
+			<div class="inputarea">
+				<!-- 不需要用到 <br> 標籤來斷行，可以將 input 設定 display:block 的屬性向下排列 -->
+				<label for="name">姓名</label>
+				<input id="name" type="text" placeholder="請填上姓名">
+				
+
+				<label for="phone">電話</label>
+				<input id="phone" type="text" placeholder="請填上聯絡電話">
+				
+
+				<label for="mail">信箱</label>
+				<input id="mail" type="text" placeholder="請填上信箱">
+				
+				<input id="submit" type="submit" value="送出">
+			</div>
+			<!-- 此層有float就要在最後加上clearfix，CSS中寫{clear:both;}解除浮動效果 -->
+			<div class="clearfix"></div>
+		</form>
+
+	</div>
+
+<!--  ====================== footer表尾 ====================== -->
+	<div class="footer">
+		<a href="#"><img src="img/footer-logo.png" alt="Hex School"></a>
+		<h3>聯絡我們：<span>hexschool@gmail.com</span> <br>
+			電 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp話：<span>0999-123456</span></h3>
+		<!-- 此層有float就要在最後加上clearfix，CSS中寫{clear:both;}解除浮動效果 -->
+		<div class="clearfix"></div>
+	</div>
+
+<!--  ======================topimage回到最上層圖 ====================== -->
+	<a  class="topimage" href="#" title="回到最上面"><img src="img/topimg50.png"></a>
+
+
+<!-- ======================JS檔連結====================== -->
+    <!-- jquery核心程式 -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    
+    <!-- Swiper輪播效果-js檔 -->
+    <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    <!-- [企業用]swiper.js壓縮檔(檔案較小) -->
+    <!-- <script src="https://unpkg.com/swiper/js/swiper.min.js"></script> -->
+
+    <!-- Lightbox燈箱效果js檔(此段需放在body前) -->
+    <script type="text/javascript" src="js/lightbox-plus-jquery.min.js"></script>
+    
+    <!-- 自己寫的js檔(內容為swiper提供) -->
+    <script src="js/all.js"></script>
+
+</div>
+
+</body>
+</html>
